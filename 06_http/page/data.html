@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data page</title>
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       <button id="btn">Get data</button>
+       <ul id="res"></ul>
+    </div>
+
+ <script>
+
+    const url = 'http://localhost:8080/data.html';
+
+    async function handleData(){
+        response = await fetch(url, {
+            method: 'POST'
+        });
+        const users = await response.json()
+
+       document.getElementById('res').innerHTML = users.map(user => `<li>
+                ${user.name}
+            </li>
+        `).join('');
+     }
+
+     document.getElementById('btn').addEventListener('click', handleData, false);
+ </script>
+</body>
+</html>

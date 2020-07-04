@@ -1,0 +1,13 @@
+<%- contentFor('hero') %>
+    <div class="container">
+         <h1>Contact page</h1>
+    </div>
+
+<%- contentFor('body') %>
+<main>
+    <h2>Content form</h2>
+    <form action="/contact" method="POST">
+        <textarea name="message" ></textarea>
+        <button>Send message</button>
+    </form>
+</main>
